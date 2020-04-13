@@ -5,16 +5,20 @@
         %a{:href => "https://www.mercari.com/jp/"}
           %img{:alt => "mercari", :src => "//pcweb-assets.mercdn.net/assets/img/common/common/logo.svg?3780252616"}/
       .sp-header-user-nav.clearfix
-        %a.sp-header-user-icon{:href => "https://www.mercari.com/jp/mypage/notification/"}
-          %figure
-            = icon('far', 'bell', alt: 'bell-icon', style: 'color:#cccccc', class: 'toppage-header-top__footer-login-content--bell-icon')
-        %a.sp-header-user-icon{:href => "https://www.mercari.com/jp/mypage/todo/"}
-          %figure
-            = icon('far', 'clock', alt: 'clock-icon', style: 'color:#cccccc', class: 'toppage-header-top__footer-login-content--clock-icon')
-        %a.sp-header-user-icon.sp-header-user-profile{:href => "https://www.mercari.com/jp/mypage/"}
-          %figure
-            %div
-              %img{:alt => "", :src => "//static.mercdn.net/images/member_photo_noimage_thumb.png", :width => "32"}/
+        -# ログイン前
+        %a.sp-header-btn.btn-red{:href => "https://www.mercari.com/jp/signup/"} 新規会員
+        %a.sp-header-btn.sp-header-signup{:href => "https://www.mercari.com/jp/login/?login_callback=https%3A%2F%2Fwww.mercari.com%2Fjp%2Fcategory%2F1%2F"} ログイン
+        -# ログイン後
+        -# %a.sp-header-user-icon{:href => "https://www.mercari.com/jp/mypage/notification/"}
+        -#   %figure
+        -#     = icon('far', 'bell', alt: 'bell-icon', style: 'color:#cccccc', class: 'toppage-header-top__footer-login-content--bell-icon')
+        -# %a.sp-header-user-icon{:href => "https://www.mercari.com/jp/mypage/todo/"}
+        -#   %figure
+        -#     = icon('far', 'clock', alt: 'clock-icon', style: 'color:#cccccc', class: 'toppage-header-top__footer-login-content--clock-icon')
+        -# %a.sp-header-user-icon.sp-header-user-profile{:href => "https://www.mercari.com/jp/mypage/"}
+        -#   %figure
+        -#     %div
+        -#       %img{:alt => "", :src => "//static.mercdn.net/images/member_photo_noimage_thumb.png", :width => "32"}/
     .search-bar
       %form.sp-header-form{:action => "https://www.mercari.com/jp/search/"}
         %input.sp-header-search.input-default{:name => "keyword", :placeholder => "何をお探しですか？", :type => "search", :value => ""}/
@@ -2651,3 +2655,10 @@
                   %li.pc-header-nav-parent
                     %h3
                       %a{:href => "https://www.mercari.com/jp/brand/"} ブランド一覧
+
+        .l-right
+          %ul.pc-header-login-nav
+            %li
+              %a.sp-header-btn.btn-red{:href => "https://www.mercari.com/jp/signup/"} 新規会員登録
+            %li
+              %a.sp-header-btn.header-login{:href => "https://www.mercari.com/jp/login/?login_callback=https%3A%2F%2Fwww.mercari.com%2Fjp%2Fcategory%2F1%2F"} ログイン
