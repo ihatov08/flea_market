@@ -32,6 +32,8 @@ gem 'hamlit-rails'
 gem 'font-awesome-sass'
 gem 'sprockets-rails', '2.3.3'
 gem 'jquery-rails'
+gem 'ancestry'
+gem 'seed-fu'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
