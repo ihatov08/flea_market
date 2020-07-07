@@ -202,7 +202,7 @@ li.first-category {
   .first-category__wrapper {
     display: none;
     font-size: 14px;
-    height: 572px;
+    // height: 572px;
     width: 224px;
     font-weight: normal;
     position: absolute;
@@ -232,7 +232,7 @@ li.first-category {
 
   &__wrapper {
     display: none;
-    height: 572px;
+    // height: 572px;
     line-height: 30px;
     font-weight: normal;
     position: absolute;
@@ -250,7 +250,7 @@ li.first-category {
 
 .third-category {
   display: block;
-  width: 320px;  
+  width: 320px;
   box-sizing: border-box;
   color: $black;
   font-size: 14px;
@@ -267,8 +267,8 @@ li.first-category {
 
   &__wrapper  {
     display: none;
-    height: 572px;
-    width: 320px;  
+    // height: 572px;
+    width: 320px;
     font-weight: normal;
     line-height: 30px;
     background: $white;
@@ -289,13 +289,13 @@ li.first-category {
     margin: 0;
     width: 224px;
     padding: 0 16px;
-  
+
     &:hover {
       background-color: $red;
       color: $white;
       opacity: 1;
       }
-  
+
     &__wrapper {
       display: none;
       height: 264px;
@@ -425,7 +425,7 @@ li.first-category {
         color: $black;
       }
     }
-    
+
   }
   &--mypage-review-listing  {
     background: #fff;
