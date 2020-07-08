@@ -30,3 +30,26 @@
 @import 'signup/signup-header';
 @import 'signup/signup-footer';
 @import 'signup/signup-main';
+
+.field_with_errors {
+  input {
+    @extend .signup-main__input-default--has-error !optional;
+  }
+
+  textarea {
+    @extend .signup-main__input-default--has-error !optional;
+  }
+}
+
+.form-group {
+  .field_with_errors {
+    label {
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    input {
+      height: 50px;
+    }
+  }
+}
