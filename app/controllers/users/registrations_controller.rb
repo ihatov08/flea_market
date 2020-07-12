@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+  layout "registration/application"
   before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -38,6 +39,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  def done
+  end
+
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
@@ -64,9 +68,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_sign_up_path_for(resource)
+    user_registration_done_path
+  end
+
+  def after_inactive_sign_up_path_for(resource)
+    user_registration_done_path
+  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)

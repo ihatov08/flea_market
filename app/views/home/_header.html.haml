@@ -22,7 +22,7 @@
                 alt: 'list-icon', style: 'color:#ea352d')
                 %span.toppage-header-top__footer-search-text カテゴリーから探す
             %ul.pc-header-nav-parent-wrap
-              - @categories.roots.each do |root_category|
+              - categories.roots.each do |root_category|
                 %li.pc-header-nav-parent
                   %h3
                     %a{:href => "/"}= root_category.name

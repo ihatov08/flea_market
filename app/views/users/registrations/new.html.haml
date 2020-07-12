@@ -59,7 +59,7 @@
               %span 月
               .signup-main__select-wrap.signup-main__select-wrap--day
                 = icon 'fas', 'chevron-down'
-                = f.select :birth_day, [1..31], {include_blank: "--", no_errors: true}, {class: "signup-main__select-default"}
+                = f.select :birth_day, (1..31), {include_blank: "--", no_errors: true}, {class: "signup-main__select-default"}
               %span 日
               = error_message(resource, :birth_year)
               = error_message(resource, :birth_month)
@@ -75,13 +75,13 @@
           .signup-main__form-group
             %p.signup-main__text.signup-main__text--center
               「次へ進む」のボタンを押すことにより、
-              = link_to '#', target: '_blank' do
+              = link_to page_path(:term_of_use), target: '_blank' do
                 利用規約
               に同意したものとみなします
           = f.submit '次へ進む', class: 'signup-main__btn-default signup-main__btn-red'
           .signup-main__form-group.signup-main__text--right
             %p
-              = link_to 'sms_confirmation', target: '_blank' do
+              = link_to page_path(:personal_information), target: '_blank' do
                 本人情報の登録について
                 = icon 'fas', 'chevron-right'
   = render "users/shared/footer"
