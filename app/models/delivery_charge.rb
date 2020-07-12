@@ -1,0 +1,2 @@
+class DeliveryCharge < ApplicationRecord
+end

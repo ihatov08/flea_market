@@ -9,6 +9,8 @@ class User < ApplicationRecord
          :timeoutable,
          :trackable
 
+  has_many :items, dependent: :destroy
+
   with_options presence: true do
     validates :nickname
     validates :given_name

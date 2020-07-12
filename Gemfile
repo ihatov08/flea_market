@@ -36,6 +36,7 @@ gem 'ancestry'
 gem 'seed-fu'
 gem 'devise'
 gem 'devise-i18n'
+gem 'carrierwave'
 
 group :development, :test do
   gem 'pry-rails'

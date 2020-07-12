@@ -17,4 +17,9 @@ class WithErrorFormBuilder < ActionView::Helpers::FormBuilder
     return super if options[:no_errors]
     super + pick_error(method)
   end
+
+  def collection_select(method, collection, value_method, text_method, options = {}, html_options = {})
+    return super if options[:no_errors]
+    super + pick_error(method)
+  end
 end

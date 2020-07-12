@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  delivery_way: one
+  value: MyString
+
+two:
+  delivery_way: two
+  value: MyString

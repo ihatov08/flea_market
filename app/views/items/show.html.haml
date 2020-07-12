@@ -1,0 +1,135 @@
+.itembuy-container
+  %section.itembuy-content
+    %h1.itembuy-content__name
+      商品名
+    .itembuy-content__clearfix
+      .itembuy-content__photo
+        .itembuy-content__auter
+          .itembuy-content__owl-carousel{ id: 'main' }
+            - @item.images.each do |image|
+              = image_tag image.url, class: 'owl-carousel', size: '300x300'
+        .itembuy-content__owl-carousel-thumb{id: 'thumbs'}
+          = @item.images.each do |image|
+            = image_tag image.url, class: 'owl-carousel-sub', size: '60x60'
+        .itembuy-content__owl-stage
+        .itembuy-content__owl-bots
+      %table.itembuy-content__table
+        %tbody
+          %tr
+            %th 出品者
+            %td
+              = link_to '/' do
+                = @item.user.nickname
+          %tr
+            %th カテゴリー
+            %td
+              - @item.category.path.each.with_index do |path, index|
+                = link_to '/' do
+                  - if index == 0
+                    = path.name
+                  - else
+                    .itembuy-table-sub
+                      %i.fas.fa-chevron-right
+                      = path.name
+          %tr
+            %th  ブランド
+            %td
+              = link_to '/' do
+                = @item.brand_name
+          %tr
+            %th 商品の状態
+            %td
+              = @item.condition.value
+          %tr
+            %th 配送料の負担
+            %td
+              = @item.delivery_charge.value
+          %tr
+            %th 配送の方法
+            %td
+              = @item.delivery_way.value
+          %tr
+            %th 配送元地域
+            %td
+              = @item.prefecture.name
+          %tr
+            %th 発送日の目安
+            %td
+              = @item.delivery_day.value
+    .itembuy-content__price
+      %span.itembuy-content__bold<
+        = number_to_currency @item.price
+      %span.itembuy-content__tax (税込)
+      %span.itembuy-content__fee
+      - if @item.delivery_charge.id == 1
+        送料込み
+      - else
+        着払い
+    = link_to '購入画面に進む', "sell_purchase_index_path(@product)", class: 'itembuy-price-box', id: 'itembuy-price-box__decoration'
+    .itembuy-detail
+      %p.itembuy-detail__inner
+        = @item.description
+    -# .itembuy-button
+    -#   .itembuy-button__left
+    -#     %button{ type: 'button', name: 'like!', class: 'i far fa-heart' }
+    -#       %span いいね! 22
+    -#     = link_to '/' do
+    -#       %i.far.fa-flag
+    -#         %span 不適切な商品の報告
+    -#   .itembuy-button__right
+    -#     = link_to '/' do
+    -#       %i.fas.fa-shopping-bag
+    -#         %span あんしん・あんぜんへの取り組み
+  -# .itembuy-content-box
+  -#   .itembuy-detail-message
+  -#     .itembuy-content__comment
+  -#       %form.itembuy-message__form
+  -#         %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+  -#         %textarea
+  -#         %button
+  -#           %span コメントする
+  -#     - if @next_product.present?
+  -#       %ul.itembuy-nav
+  -#         %li.itembuy-nav__left
+  -#           = link_to sell_path(@next_product) do
+  -#             %i.fas.fa-chevron-left
+  -#             = @next_product.name
+  -#     - if @prev_product.present?
+  -#       %ul.itembuy-nav
+  -#         %li.itembuy-nav__right
+  -#           = link_to sell_path(@prev_product) do
+  -#             = @prev_product.name
+  -#             %i.fas.fa-chevron-right
+  -# .itembuy-media-box
+  -#   %ul.itembuy-media-box__list
+  -#     %li
+  -#       = link_to '/' do
+  -#         %i.fab.fa-facebook-square
+  -#     %li
+  -#       = link_to '/' do
+  -#         %i.fab.fa-twitter-square
+  -#     %li
+  -#       = link_to '/' do
+  -#         %i.fab.fa-line
+  -#     %li
+  -#       = link_to '/' do
+  -#         %i.fab.fa-pinterest-square
+  .itembuy-user-profile
+    %section.itembuy-user-profile__box
+    -# %h2.itembuy-user-profile__head
+    -#   = link_to '/' do
+    -#     greg
+    .itembuy-user-profile__content
+      -# - @my_product.order('created_at DESC').limit(6).each do |my_product|
+      -#   .itembuy-user-profile__box
+      -#     %section.itembuy-user-profile__items
+      -#       = link_to sell_path(my_product) do
+      -#         = image_tag my_product.images[0] || Product.first.images[0], size: '220x220'
+      -#         .itembuy-user-profile__body
+      -#           %h3.itembuy-user-profile__name
+      -#             = my_product.name
+      -#           .itembuy-user-profile__num
+      -#             .itembuy-user-profile__price
+      -#               = my_product.jpy
+  -# = render 'sell/bread-bottom'
+  -# = render 'sell/footer'

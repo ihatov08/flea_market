@@ -17,5 +17,7 @@ Rails.application.routes.draw do
   get "mypage" => "mypage#index", as: :mypage
   get "mypage/logout" => "mypage#logout", as: :logout
 
+  resources :items, only: %i[show new create]
+
   get "pages/:title" => "pages#show", as: :page
 end
