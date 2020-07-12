@@ -54,7 +54,7 @@
           -#     %li.brand
           -#       %a{:href => "/"} ブランド一覧
       .toppage-header-top__footer-contents
-        - if false
+        - if user_signed_in?
           .toppage-header-top__footer-contents-wrapper
             .toppage-header-top__footer-login
               %ul.toppage-header-top__footer-login-contents
@@ -110,7 +110,7 @@
                         = image_tag 'member_photo_noimage.png', alt: 'mypage-logo', width: '32px',
                         class: 'toppage-header-top__footer-login-content--mypage-header-user-icon'
                         %span
-                          = link_to 'マイページ', '/mypage'
+                          = link_to 'マイページ', mypage_path
                     .toppage-header-top__footer-login-content--mypage-box
                       .toppage-header-top__footer-login-content--mypage-box-content
                         %figure
@@ -123,7 +123,8 @@
                           %li
                             = link_to '評価: 2', '#'
                           %li
-                            = link_to "出品数: #{current_user.products.length}", listing_listing_mypage_index_path
+                            = link_to "出品数: 3", "#"
+                            =# link_to "出品数: #{current_user.products.length}", listing_listing_mypage_index_path
                         %ul.toppage-header-top__footer-login-content--mypage-sales-point
                           %li
                             = link_to '#' do
@@ -139,15 +140,15 @@
                                 = icon 'fas', 'chevron-right'
                       %ul.toppage-header-top__footer-login-content--mypage-nav-list
                         %li
-                          = link_to listing_listing_mypage_index_path, class: 'toppage-header-top__footer-login-content--mypage-nav-list-item' do
+                          = link_to "listing_listing_mypage_index_path", class: 'toppage-header-top__footer-login-content--mypage-nav-list-item' do
                             出品した商品 - 出品中
                             = icon 'fas', 'chevron-right'
                         %li
-                          = link_to listing_in_progress_mypage_index_path, class: 'toppage-header-top__footer-login-content--mypage-nav-list-item' do
+                          = link_to "listing_in_progress_mypage_index_path", class: 'toppage-header-top__footer-login-content--mypage-nav-list-item' do
                             出品した商品 - 取引中
                             = icon('fas', 'chevron-right')
                         %li
-                          = link_to listing_completed_mypage_index_path, class: 'toppage-header-top__footer-login-content--mypage-nav-list-item' do
+                          = link_to "listing_completed_mypage_index_path", class: 'toppage-header-top__footer-login-content--mypage-nav-list-item' do
                             出品した商品 - 売却済み
                             = icon('fas', 'chevron-right')
                         %li

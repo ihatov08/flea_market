@@ -14,5 +14,7 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
+  get "mypage" => "mypage#index", as: :mypage
+
   get "pages/:title" => "pages#show", as: :page
 end

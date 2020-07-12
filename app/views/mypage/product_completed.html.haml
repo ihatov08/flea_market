@@ -1,0 +1,49 @@
+.mypage-main-container
+  = render 'sell/header'
+  - breadcrumb :mypage
+  = render 'mypage/bread-crumbs'
+  %main.mypage-container.clearfix
+    .mypage-content-edit__secondary-tab-container
+      %h2.mypage-content-edit__tab-head
+        出品した商品
+      %ul.mypage-content-edit__tabs
+        %li.mypage-content-edit__tab
+          %h3
+            = link_to listing_listing_mypage_index_path do
+              出品中
+        %li.mypage-content-edit__tab
+          %h3
+            = link_to listing_in_progress_mypage_index_path do
+              取引中
+        %li.mypage-content-edit__tab.mypage-content-edit__tab--active
+          %h3
+            = link_to listing_completed_mypage_index_path do
+              売却済み
+      - if @products.exists?
+        .mypage-content-edit__tab-content
+          - @products.each do |product|
+            = link_to '#', class: 'mypage-content-edit__item-link' do
+              .mypage-content-edit__item-image
+                = image_tag product.images[0], class: 'status-mini-image', size: '48x48'
+              .mypage-content-edit__item-body
+                = icon 'fas', 'chevron-right', class: 'mypage-content-edit__item-status--right-arrow'
+                .mypage-content-edit__item-text
+                  #{product.name}
+                .mypage-content-edit__item-status.mypage-content-edit__item-status--done
+                  売約済
+              = icon 'fas', 'chevron-right'
+      - else
+        .mypage-content-edit__tab-content
+          %ul.mypage-content-edit__item-list.mypage-content-edit__item-list--active{ id: 'mypage-content-edit__item-list-transaction-now' }
+            %li.mypage-content-edit__item-not-found
+              売却済みの商品がありません
+      %ul.mypage-content-edit__history
+        %li.mypage-content-edit__history-prev
+          = link_to '#' do
+            = icon 'fas', 'chevron-right'
+        %li.mypage-content-edit__history-next
+          = link_to '#' do
+            = icon 'fas', 'chevron-right'
+    = render 'mypage/side-bar'
+  = render 'sell/footer'
+  = render 'sell/sellbutton'
