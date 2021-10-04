@@ -1,5 +1,5 @@
 FROM node:12 as node
-FROM ruby:2.7
+FROM ruby:2.7.1
 COPY --from=node /opt/yarn-* /opt/yarn
 COPY --from=node /usr/local/bin/node /usr/local/bin/
 RUN ln -fs /opt/yarn/bin/yarn /usr/local/bin/yarn \
